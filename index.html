@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AJVOX designs clean, mobile-friendly one-page websites for small businesses in Kochi — cafés, salons, clinics, coaching centres, homestays and more.">
+  <meta name="theme-color" content="#090711">
+  <meta property="og:title" content="AJVOX — Websites for Small Businesses in Kochi">
+  <meta property="og:description" content="Clean, mobile-friendly one-page websites that help your business get found and contacted.">
+  <meta property="og:image" content="ajvox-logo.jpg">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>AJVOX — Websites for Small Businesses in Kochi</title>
+  <style>
+    :root{
+      --bg:#090711; --panel:#12101d; --panel2:#171326; --purple:#9b5cff;
+      --purple2:#6f35d8; --silver:#e9e7f2; --muted:#aaa5b8;
+      --line:rgba(226,218,255,.13); --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:radial-gradient(ellipse at 75% 5%,rgba(111,53,216,.19),transparent 35%),var(--bg);color:var(--silver);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible{outline:2px solid #c49cff;outline-offset:3px;border-radius:8px}
+    .wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+
+    /* Header */
+    header{height:82px;display:flex;align-items:center;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(9,7,17,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.13em;font-size:1.35rem}
+    .brand img{width:42px;height:42px;border-radius:50%}
+    .brand .v{color:var(--purple)}
+    nav.main{display:flex;gap:30px;color:#c7c1d3;font-size:.92rem}
+    nav.main a:hover{color:white}
+    .nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(180,130,255,.55);border-radius:999px;padding:11px 19px;color:white;font-weight:650;font-size:.9rem;background:linear-gradient(120deg,rgba(111,53,216,.22),rgba(155,92,255,.08));cursor:pointer;font-family:inherit}
+    .menu-btn{display:none;width:46px;height:46px;border-radius:12px;border:1px solid rgba(180,130,255,.45);background:rgba(155,92,255,.1);color:white;cursor:pointer;align-items:center;justify-content:center;padding:0}
+    .menu-btn span,.menu-btn span:before,.menu-btn span:after{display:block;width:20px;height:2px;background:#e9e1ff;border-radius:2px;position:relative;transition:.25s}
+    .menu-btn span:before,.menu-btn span:after{content:"";position:absolute;left:0}
+    .menu-btn span:before{top:-6px}.menu-btn span:after{top:6px}
+    .menu-btn[aria-expanded="true"] span{background:transparent}
+    .menu-btn[aria-expanded="true"] span:before{top:0;transform:rotate(45deg)}
+    .menu-btn[aria-expanded="true"] span:after{top:0;transform:rotate(-45deg)}
+
+    /* Hero */
+    .hero{min-height:620px;display:grid;align-items:center;padding:80px 0 95px;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:460px;height:460px;border:1px solid rgba(155,92,255,.22);border-radius:50%;right:-100px;top:70px;box-shadow:0 0 0 35px rgba(155,92,255,.035),0 0 0 75px rgba(155,92,255,.025);pointer-events:none}
+    .hero-layout{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:35px;position:relative;z-index:1}
+    .eyebrow{color:#c49cff;text-transform:uppercase;letter-spacing:.2em;font-size:.76rem;font-weight:750}
+    h1{font-size:clamp(2.5rem,6.2vw,5rem);line-height:1.03;letter-spacing:-.05em;margin:20px 0 18px;max-width:760px}
+    h1 .shine{background:linear-gradient(100deg,#fff 10%,#c9b4f6 52%,#9855ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .tagline{font-size:clamp(1rem,2vw,1.25rem);letter-spacing:.03em;color:#d0cbd9;margin:0 0 14px}
+    .intro{max-width:560px;color:var(--muted);font-size:1.03rem;margin:0 0 30px}
+    .actions{display:flex;gap:13px;flex-wrap:wrap}
+    .button.primary{background:linear-gradient(115deg,#7a3be0,#a66aff);border:0;box-shadow:0 10px 35px rgba(122,59,224,.25)}
+    .button.secondary{border-color:var(--line);background:rgba(255,255,255,.025)}
+    .hero-art{border:1px solid rgba(196,156,255,.22);border-radius:30px;overflow:hidden;background:#000;box-shadow:0 28px 90px rgba(0,0,0,.4),0 0 60px rgba(155,92,255,.14)}
+    .hero-art img{width:100%;height:auto}
+
+    /* Sections */
+    section{padding:82px 0}
+    .section-head{max-width:650px;margin-bottom:34px}
+    .section-head h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.1;letter-spacing:-.04em;margin:10px 0}
+    .section-head p{color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .card{padding:0 0 25px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(26,21,43,.96),rgba(15,13,24,.96));min-height:330px;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-6px);border-color:rgba(177,128,255,.48);box-shadow:0 18px 45px rgba(0,0,0,.25)}
+    .service-art{height:172px;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(143,84,231,.26),transparent 60%),linear-gradient(135deg,#211631,#100d19)}
+    .service-art:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(195,158,255,.16);border-radius:50%;box-shadow:0 0 0 22px rgba(155,92,255,.035),0 0 0 45px rgba(155,92,255,.025)}
+    .service-art svg{width:78%;max-width:235px;height:145px;position:relative;z-index:1;filter:drop-shadow(0 12px 18px rgba(0,0,0,.35))}
+    .card-copy{padding:22px 25px 0}
+    .icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;color:#d7baff;background:rgba(155,92,255,.13);border:1px solid rgba(155,92,255,.25);font-size:1.15rem;margin-bottom:14px}
+    .card h3{margin:0 0 8px;font-size:1.12rem}
+    .card p{margin:0;color:var(--muted);font-size:.94rem}
+
+    /* Who we help */
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .chip{padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);color:#d6d0e2;font-size:.9rem}
+
+    /* Portfolio */
+    .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .work{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel)}
+    .work-shot{aspect-ratio:16/10;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(143,84,231,.22),transparent 60%),linear-gradient(135deg,#1a132a,#0d0b15);position:relative}
+    .work-shot img{width:100%;height:100%;object-fit:cover}
+    .work-shot .ph{color:#b9a6df;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:0 16px}
+    .work-copy{padding:18px 22px 22px}
+    .work-copy h3{margin:0 0 4px;font-size:1.05rem}
+    .work-copy p{margin:0;color:var(--muted);font-size:.9rem}
+    .note{color:#8f899e;font-size:.85rem;margin-top:18px}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .statement{border:1px solid var(--line);border-radius:24px;padding:34px;background:radial-gradient(circle at 90% 10%,rgba(155,92,255,.2),transparent 45%),var(--panel)}
+    .statement strong{font-size:1.55rem;line-height:1.25;display:block}
+    .statement p{color:var(--muted);margin-bottom:0}
+
+    /* Process */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{padding:22px;border-top:1px solid var(--purple);background:rgba(255,255,255,.025);border-radius:0 0 14px 14px}
+    .step b{font-size:.76rem;color:#b98cff;letter-spacing:.15em}
+    .step h3{margin:8px 0}
+    .step p{color:var(--muted);font-size:.92rem;margin:0}
+
+    /* Contact */
+    .contact{border:1px solid var(--line);border-radius:24px;padding:40px;background:linear-gradient(115deg,rgba(111,53,216,.19),rgba(18,16,29,.95) 60%)}
+    .contact h2{font-size:clamp(2rem,4vw,3rem);margin:0 0 10px;letter-spacing:-.04em}
+    .contact p{color:var(--muted);margin:0 0 23px}
+    footer{padding:28px 0;border-top:1px solid var(--line);color:#8f899e;font-size:.85rem}
+    footer .foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+
+    @media(max-width:860px){
+      .menu-btn{display:inline-flex}
+      .nav-cta{display:none}
+      nav.main{display:none;position:absolute;top:82px;left:0;right:0;flex-direction:column;gap:0;background:rgba(14,11,24,.98);border-bottom:1px solid var(--line);padding:8px 22px 18px;box-shadow:0 24px 50px rgba(0,0,0,.45)}
+      nav.main.open{display:flex}
+      nav.main a{padding:15px 4px;border-bottom:1px solid var(--line);font-size:1rem}
+      nav.main a:last-child{border-bottom:0;color:#c49cff;font-weight:700}
+    }
+    @media(max-width:760px){
+      .hero{min-height:unset;padding:56px 0 70px}.hero:after{right:-300px;top:110px}
+      .hero-layout{grid-template-columns:1fr}.hero-art{order:2}
+      .grid,.steps,.work-grid{grid-template-columns:1fr}.about{grid-template-columns:1fr;gap:24px}section{padding:62px 0}
+      .contact{padding:28px}
+      .actions .button{flex:1 1 100%}
+    }
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="AJVOX home">
+      <img src="ajvox-emblem.png" alt="AJVOX logo" width="42" height="42">
+      <span style="color:#f1edf8">AJ<span class="v">V</span>OX</span>
+    </a>
+    <nav class="main" id="mainnav" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Let's Talk ↗</a>
+    <button class="menu-btn" id="menubtn" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav"><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-layout">
+      <div>
+        <div class="eyebrow">Web design · Thevara, Kochi</div>
+        <h1>Websites for <span class="shine">small businesses.</span></h1>
+        <p class="tagline">AJVOX — Ideas That Move The Future.</p>
+        <p class="intro">Clean, mobile-friendly one-page websites for cafés, salons, clinics, coaching centres and local businesses in and around Kochi — so customers can find you, trust you and contact you.</p>
+        <div class="actions">
+          <a class="button primary" href="#contact">Get a Free Sample&nbsp; ↗</a>
+          <a class="button secondary" href="#work">See Our Work</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="ajvox-logo.jpg" alt="AJVOX logo — Ideas That Move The Future" width="1100" height="550">
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">What we do</div>
+        <h2>Digital solutions, built with purpose.</h2>
+        <p>Practical creative and digital services for people and businesses ready to grow.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="service-art" aria-hidden="true"><svg viewBox="0 0 260 150" fill="none"><rect x="48" y="17" width="164" height="104" rx="9" fill="#171126" stroke="#bd9aff" stroke-width="2"/><rect x="58" y="28" width="144" height="82" rx="4" fill="#0b0913"/><rect x="70" y="40" width="58" height="6" rx="3" fill="#a96aff"/><rect x="70" y="53" width="88" height="4" rx="2" fill="#6e647e"/><rect x="70" y="65" width="44" height="29" rx="4" fill="#38235a"/><rect x="121" y="65" width="70" height="5" rx="2" fill="#d9c9f7"/><rect x="121" y="76" width="58" height="4" rx="2" fill="#776a8b"/><rect x="121" y="86" width="48" height="4" rx="2" fill="#776a8b"/><path d="M28 128h204l-15 9H43l-15-9Z" fill="#a77af0"/><path d="M110 128h40" stroke="#f3eaff" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="card-copy"><div class="icon">⌘</div><h3>One-Page Websites</h3><p>Responsive business websites and focused landing pages with clear messaging, modern layouts and a working contact button.</p></div>
+        </article>
+        <article class="card">
+          <div class="service-art" aria-hidden="true"><svg viewBox="0 0 260 150" fill="none"><rect x="80" y="20" width="100" height="112" rx="9" transform="rotate(-8 80 20)" fill="#211637" stroke="#b88aff" stroke-width="1.8"/><rect x="95" y="28" width="100" height="112" rx="9" transform="rotate(7 95 28)" fill="#151020" stroke="#e2d2ff" stroke-width="1.8"/><rect x="113" y="48" width="62" height="38" rx="5" fill="#54317f"/><path d="m124 76 14-17 10 10 9-11 12 18" stroke="#e8dcff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="112" y="96" width="66" height="5" rx="2.5" fill="#b48af2"/><rect x="112" y="107" width="48" height="4" rx="2" fill="#716481"/><circle cx="68" cy="48" r="15" fill="#8d54d9" fill-opacity=".28" stroke="#bd9aff"/><path d="M68 40v16m-8-8h16" stroke="#e8dcff" stroke-width="2"/></svg></div>
+          <div class="card-copy"><div class="icon">✳</div><h3>Digital Products</h3><p>Useful templates, design resources and downloadable products for creators and businesses.</p></div>
+        </article>
+        <article class="card">
+          <div class="service-art" aria-hidden="true"><svg viewBox="0 0 260 150" fill="none"><rect x="58" y="17" width="72" height="116" rx="13" fill="#171126" stroke="#b88aff" stroke-width="2"/><rect x="66" y="29" width="56" height="88" rx="5" fill="#0c0a14"/><rect x="74" y="39" width="40" height="31" rx="4" fill="#54317f"/><path d="m79 64 10-12 8 7 7-9 8 14" stroke="#eee5ff" stroke-width="1.6"/><rect x="74" y="78" width="38" height="4" rx="2" fill="#c6a8ff"/><rect x="74" y="88" width="30" height="4" rx="2" fill="#766987"/><rect x="74" y="98" width="34" height="4" rx="2" fill="#766987"/><rect x="151" y="34" width="55" height="55" rx="14" fill="#30204a" stroke="#b88aff"/><path d="M163 72V51l15-8 16 8v21l-16 8-15-8Z" stroke="#e9ddff" stroke-width="2"/><path d="m164 52 14 8 15-8M178 60v19" stroke="#b88aff" stroke-width="1.6"/><path d="M145 111h69" stroke="#9b5cff" stroke-width="4" stroke-linecap="round"/></svg></div>
+          <div class="card-copy"><div class="icon">◈</div><h3>Creative Content</h3><p>Social media creatives, promotional graphics and visual content made to communicate clearly.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="who" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Who we help</div>
+        <h2>Built for local businesses.</h2>
+        <p>If your customers search for you on Google Maps or Instagram, a simple website makes you easier to trust and easier to reach.</p>
+      </div>
+      <div class="chips">
+        <span class="chip">Cafés &amp; Restaurants</span><span class="chip">Salons</span><span class="chip">Coaching &amp; Tuition Centres</span><span class="chip">Clinics</span><span class="chip">Homestays &amp; Travel</span><span class="chip">Ayurveda &amp; Spa</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Selected work</div>
+        <h2>Demo projects.</h2>
+        <p>Concept designs that show the kind of one-page website we build.</p>
+      </div>
+      <div class="work-grid">
+        <!-- To add a screenshot: put the image in this folder and replace the <div class="ph"> line with: <img src="your-image.jpg" alt="Café website demo"> -->
+        <article class="work">
+          <div class="work-shot"><div class="ph">Screenshot coming soon</div></div>
+          <div class="work-copy"><h3>Café Website — Demo</h3><p>One-page site with menu highlights, location and WhatsApp button.</p></div>
+        </article>
+        <article class="work">
+          <div class="work-shot"><div class="ph">Screenshot coming soon</div></div>
+          <div class="work-copy"><h3>Salon Website — Demo</h3><p>Services, price list, gallery and booking button.</p></div>
+        </article>
+        <article class="work">
+          <div class="work-shot"><div class="ph">Screenshot coming soon</div></div>
+          <div class="work-copy"><h3>Coaching Centre — Demo</h3><p>Courses, timings, results and enquiry section.</p></div>
+        </article>
+      </div>
+      <p class="note">These are original concept demos. No real business name or logo is used without permission.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="section-head" style="margin-bottom:0">
+        <div class="eyebrow">The idea behind AJVOX</div>
+        <h2>Think clearly.<br>Make boldly.</h2>
+        <p>AJVOX is an emerging digital brand based in Thevara, Kochi, focused on creative execution, accessible technology and useful online products. We are starting lean, learning through real projects, and building toward something bigger.</p>
+      </div>
+      <div class="statement">
+        <strong>Good ideas deserve more than a place in your notes.</strong>
+        <p>They deserve thoughtful design, dependable execution and a path to reach the people who need them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">How we work</div>
+        <h2>From idea to launch.</h2>
+        <p>A straightforward process that keeps the goal, the work and the outcome aligned. Scope, number of revisions and payment schedule are agreed in writing before we begin.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><b>01 / DISCOVER</b><h3>Understand</h3><p>We clarify the goal, audience and essential requirements before starting.</p></div>
+        <div class="step"><b>02 / CREATE</b><h3>Design &amp; Build</h3><p>We shape the content and visual direction, then build and review the solution.</p></div>
+        <div class="step"><b>03 / DELIVER</b><h3>Launch &amp; Improve</h3><p>We deliver the agreed work and identify sensible next improvements.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="eyebrow">Have a business?</div>
+        <h2>Let's get you online.</h2>
+        <p>Tell us about your business and what you need. We'll reply with a simple plan and a clear price.</p>
+        <div class="actions">
+          <a class="button primary" href="mailto:ajvoxofficial@gmail.com?subject=Website%20enquiry">Email AJVOX&nbsp; ↗</a>
+          <a class="button secondary" href="https://wa.me/916238730263?text=Hi%20AJVOX%2C%20I%27d%20like%20a%20website%20for%20my%20business." target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+        <p style="margin:20px 0 0;font-size:.92rem">ajvoxofficial@gmail.com &nbsp;·&nbsp; +91 6238730263 &nbsp;·&nbsp; Thevara, Kochi</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot"><span>© <span id="year"></span> AJVOX. All rights reserved.</span><span>Ideas That Move The Future.</span></div>
+</footer>
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+  var btn=document.getElementById('menubtn'),nav=document.getElementById('mainnav');
+  function setMenu(open){nav.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Close menu':'Open menu');}
+  btn.addEventListener('click',function(){setMenu(!nav.classList.contains('open'));});
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+  window.addEventListener('resize',function(){if(window.innerWidth>860)setMenu(false);});
+</script>
+</body>
+</html>
